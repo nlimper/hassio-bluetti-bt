@@ -29,6 +29,60 @@
   },
   "entity": {
     "sensor": {
+      "time_slot_1": {
+        "name": "Tijdvak 1",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
+      "time_slot_2": {
+        "name": "Tijdvak 2",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
+      "time_slot_3": {
+        "name": "Tijdvak 3",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
+      "time_slot_4": {
+        "name": "Tijdvak 4",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
+      "time_slot_5": {
+        "name": "Tijdvak 5",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
+      "time_slot_6": {
+        "name": "Tijdvak 6",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
       "ac_input_apparent_power": {
         "name": "AC-ingang schijnbaar vermogen"
       },

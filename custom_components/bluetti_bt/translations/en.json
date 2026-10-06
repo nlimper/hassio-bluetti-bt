@@ -29,6 +29,60 @@
   },
   "entity": {
     "sensor": {
+      "time_slot_1": {
+        "name": "Time Slot 1",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_2": {
+        "name": "Time Slot 2",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_3": {
+        "name": "Time Slot 3",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_4": {
+        "name": "Time Slot 4",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_5": {
+        "name": "Time Slot 5",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_6": {
+        "name": "Time Slot 6",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
       "ac_input_apparent_power": {
         "name": "AC Input Apparent Power"
       },

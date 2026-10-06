@@ -29,6 +29,60 @@
   },
   "entity": {
     "sensor": {
+      "time_slot_1": {
+        "name": "Zeitfenster 1",
+        "state": {
+          "off": "Aus",
+          "charge": "Laden",
+          "discharge": "Entladen",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_2": {
+        "name": "Zeitfenster 2",
+        "state": {
+          "off": "Aus",
+          "charge": "Laden",
+          "discharge": "Entladen",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_3": {
+        "name": "Zeitfenster 3",
+        "state": {
+          "off": "Aus",
+          "charge": "Laden",
+          "discharge": "Entladen",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_4": {
+        "name": "Zeitfenster 4",
+        "state": {
+          "off": "Aus",
+          "charge": "Laden",
+          "discharge": "Entladen",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_5": {
+        "name": "Zeitfenster 5",
+        "state": {
+          "off": "Aus",
+          "charge": "Laden",
+          "discharge": "Entladen",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_6": {
+        "name": "Zeitfenster 6",
+        "state": {
+          "off": "Aus",
+          "charge": "Laden",
+          "discharge": "Entladen",
+          "standby": "Standby"
+        }
+      },
       "ac_input_apparent_power": {
         "name": "AC-Eingang Scheinleistung"
       },

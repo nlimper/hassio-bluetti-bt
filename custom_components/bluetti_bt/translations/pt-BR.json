@@ -27,6 +27,12 @@
   },
   "entity": {
     "sensor": {
+      "time_slot_1": { "name": "Intervalo 1", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
+      "time_slot_2": { "name": "Intervalo 2", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
+      "time_slot_3": { "name": "Intervalo 3", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
+      "time_slot_4": { "name": "Intervalo 4", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
+      "time_slot_5": { "name": "Intervalo 5", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
+      "time_slot_6": { "name": "Intervalo 6", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
       "ac_input_apparent_power": { "name": "Potência aparente de entrada CA" },
       "ac_output_apparent_power": { "name": "Potência aparente de saída CA" },
       "battery_soh": { "name": "Saúde da bateria" },
