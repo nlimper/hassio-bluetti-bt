@@ -6,7 +6,7 @@ import asyncio
 import logging
 from dataclasses import replace
 
-from homeassistant.exceptions import HomeAssistantError
+from homeassistant.exceptions import HomeAssistantError, ServiceValidationError
 from bluetti_bt_lib import BluettiDevice
 from bluetti_bt_lib.enums import TimeSlotMode
 from bluetti_bt_lib.fields import TimeSlot, TimeSlotField
@@ -47,7 +47,7 @@ def _check_overlap(
         if not isinstance(other, TimeSlot) or other.mode == TimeSlotMode.OFF:
             continue
         if start < _minutes(other.end) and _minutes(other.start) < end:
-            raise HomeAssistantError(
+            raise ServiceValidationError(
                 f"{slot.start}-{slot.end} overlaps {other_field.name} "
                 f"({other.start}-{other.end})"
             )
@@ -65,7 +65,7 @@ async def async_write_time_slot(
 ) -> None:
     """Validate a slot and write it (mode, start and end in one command)."""
     if not field.allowed_write_type(slot):
-        raise HomeAssistantError(
+        raise ServiceValidationError(
             f"Invalid time slot {slot.mode.name.lower()} {slot.start}-{slot.end}: "
             "an active slot needs a start before its end"
         )

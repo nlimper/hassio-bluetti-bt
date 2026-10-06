@@ -10,7 +10,7 @@ import async_timeout
 from bleak import BleakScanner
 from bleak.exc import BleakError
 from bleak_retry_connector import BleakClientWithServiceCache, establish_connection
-from homeassistant.exceptions import HomeAssistantError
+from homeassistant.exceptions import HomeAssistantError, ServiceValidationError
 from bluetti_bt_lib import BluettiDevice, DeviceWriter, DeviceWriterConfig
 from bluetti_bt_lib.fields import DeviceField
 from bluetti_bt_lib.registers import ReadableRegisters
@@ -40,7 +40,7 @@ async def async_write_field(
     value after ATTEMPTS writes, so the failure shows up in the UI.
     """
     if bluetti_device.build_write_command(field.name, value) is None:
-        raise HomeAssistantError(f"Refused to write {value!r} to {field.name}")
+        raise ServiceValidationError(f"Refused to write {value!r} to {field.name}")
 
     for attempt in range(1, ATTEMPTS + 1):
         try:

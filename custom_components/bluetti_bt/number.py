@@ -7,7 +7,7 @@ from homeassistant.components.number import NumberEntity, NumberMode
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import EntityCategory
-from homeassistant.exceptions import HomeAssistantError
+from homeassistant.exceptions import ServiceValidationError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import (
@@ -163,18 +163,18 @@ class BluettiNumber(CoordinatorEntity, NumberEntity):
     async def async_set_native_value(self, value: float) -> None:
         """Set the value on the device."""
         if value != int(value):
-            raise HomeAssistantError(f"{self._field.name} takes whole numbers only")
+            raise ServiceValidationError(f"{self._field.name} takes whole numbers only")
         target = int(value)
 
         data = self.coordinator.data if isinstance(self.coordinator.data, dict) else {}
         below = data.get(self._field.must_be_below) if self._field.must_be_below else None
         above = data.get(self._field.must_be_above) if self._field.must_be_above else None
         if isinstance(below, int) and target >= below:
-            raise HomeAssistantError(
+            raise ServiceValidationError(
                 f"{self._field.name} must stay below {self._field.must_be_below} ({below})"
             )
         if isinstance(above, int) and target <= above:
-            raise HomeAssistantError(
+            raise ServiceValidationError(
                 f"{self._field.name} must stay above {self._field.must_be_above} ({above})"
             )
 

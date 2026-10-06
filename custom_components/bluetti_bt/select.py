@@ -9,7 +9,7 @@ from homeassistant.components.select import SelectEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import EntityCategory
-from homeassistant.exceptions import HomeAssistantError
+from homeassistant.exceptions import ServiceValidationError
 from homeassistant.helpers import config_validation as cv, entity_platform
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.entity import DeviceInfo
@@ -241,7 +241,7 @@ class BluettiSelect(CoordinatorEntity, SelectEntity):
 
     async def async_set_time_slot(self, mode: str, start, end):
         """Only time slot selects support this service."""
-        raise HomeAssistantError(f"{self.entity_id} is not a time slot")
+        raise ServiceValidationError(f"{self.entity_id} is not a time slot")
 
 
 class BluettiTimeSlotSelect(BluettiSelect):

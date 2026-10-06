@@ -27,6 +27,12 @@ instellingen die de bestaande integraties missen.
 - `tools/dumps/` bevat serienummers en blijft buiten git.
 - Bestanden met LF-regeleinden schrijven (beide repo's gebruiken LF).
 
+## Installeren op HA
+
+Via HACS (custom repository `nlimper/hassio-bluetti-bt`). Een wijziging komt op HA na: committen,
+Nic pusht (eerst `bluetti-bt-lib` als de pin in `manifest.json` verandert), HACS-update van de
+repository, HA herstarten. Niet meer met de hand naar `custom_components` kopiëren.
+
 ## Werkomgeving
 
 ```bash
