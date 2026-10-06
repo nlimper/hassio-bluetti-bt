@@ -29,6 +29,24 @@
   },
   "entity": {
     "sensor": {
+      "time_slot_1_times": {
+        "name": "Tijdvak 1 tijden"
+      },
+      "time_slot_2_times": {
+        "name": "Tijdvak 2 tijden"
+      },
+      "time_slot_3_times": {
+        "name": "Tijdvak 3 tijden"
+      },
+      "time_slot_4_times": {
+        "name": "Tijdvak 4 tijden"
+      },
+      "time_slot_5_times": {
+        "name": "Tijdvak 5 tijden"
+      },
+      "time_slot_6_times": {
+        "name": "Tijdvak 6 tijden"
+      },
       "time_slot_1": {
         "name": "Tijdvak 1",
         "state": {

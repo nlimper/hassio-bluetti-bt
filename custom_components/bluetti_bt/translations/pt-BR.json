@@ -27,6 +27,12 @@
   },
   "entity": {
     "sensor": {
+      "time_slot_1_times": { "name": "Intervalo 1 horários" },
+      "time_slot_2_times": { "name": "Intervalo 2 horários" },
+      "time_slot_3_times": { "name": "Intervalo 3 horários" },
+      "time_slot_4_times": { "name": "Intervalo 4 horários" },
+      "time_slot_5_times": { "name": "Intervalo 5 horários" },
+      "time_slot_6_times": { "name": "Intervalo 6 horários" },
       "time_slot_1": { "name": "Intervalo 1", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
       "time_slot_2": { "name": "Intervalo 2", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
       "time_slot_3": { "name": "Intervalo 3", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },

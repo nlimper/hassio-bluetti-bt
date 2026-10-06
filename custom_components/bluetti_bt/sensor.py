@@ -72,6 +72,15 @@ async def async_setup_entry(
                     logger=logger,
                 )
             )
+            sensors_to_add.append(
+                BluettiTimeSlotTimesSensor(
+                    coordinator,
+                    device_info,
+                    field.address,
+                    field.name,
+                    logger=logger,
+                )
+            )
             continue
 
         if unit is not None:
@@ -323,4 +332,32 @@ class BluettiSensor(CoordinatorEntity, SensorEntity):
         else:
             # Numeric
             self._attr_native_value = response_data
+        self.async_write_ha_state()
+
+
+class BluettiTimeSlotTimesSensor(BluettiSensor):
+    """Start and end time of a time slot, e.g. "13:00–15:30" ("–" when unused)."""
+
+    def __init__(self, coordinator, device_info, address, response_key, logger):
+        super().__init__(coordinator, device_info, address, response_key, logger=logger)
+        self._attr_translation_key = f"{response_key}_times"
+        self._attr_unique_id = get_unique_id(
+            f"{device_info.get('name')} {response_key}_times"
+        )
+        self._attr_icon = "mdi:clock-outline"
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+        data = self.coordinator.data
+        slot = data.get(self._response_key) if isinstance(data, dict) else None
+        if not isinstance(slot, TimeSlot):
+            self._set_unavailable("No data")
+            return
+
+        self._set_available()
+        if slot.start == slot.end == "00:00":
+            self._attr_native_value = "–"
+        else:
+            self._attr_native_value = f"{slot.start}–{slot.end}"
         self.async_write_ha_state()

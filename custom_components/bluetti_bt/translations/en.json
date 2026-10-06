@@ -29,6 +29,24 @@
   },
   "entity": {
     "sensor": {
+      "time_slot_1_times": {
+        "name": "Time Slot 1 Times"
+      },
+      "time_slot_2_times": {
+        "name": "Time Slot 2 Times"
+      },
+      "time_slot_3_times": {
+        "name": "Time Slot 3 Times"
+      },
+      "time_slot_4_times": {
+        "name": "Time Slot 4 Times"
+      },
+      "time_slot_5_times": {
+        "name": "Time Slot 5 Times"
+      },
+      "time_slot_6_times": {
+        "name": "Time Slot 6 Times"
+      },
       "time_slot_1": {
         "name": "Time Slot 1",
         "state": {
