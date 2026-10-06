@@ -1,0 +1,412 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "address": "Apparaat"
+        }
+      }
+    },
+    "abort": {
+      "no_unconfigured_devices": "Geen apparaten gevonden"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "polling_interval": "Uitleesinterval in seconden (herstart nodig)",
+          "polling_timeout": "Time-out bij uitlezen in seconden (herstart nodig)",
+          "max_retries": "Maximaal aantal verbindingspogingen (herstart nodig)"
+        }
+      }
+    },
+    "abort": {
+      "invalid_interval": "Ongeldig uitleesinterval. Gebruik 5 seconden of meer",
+      "invalid_timeout": "Ongeldige time-out. Gebruik 1 seconde of meer",
+      "invalid_retries": "Ongeldig aantal pogingen. Gebruik 1 of meer"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "ac_input_apparent_power": {
+        "name": "AC-ingang schijnbaar vermogen"
+      },
+      "ac_output_apparent_power": {
+        "name": "AC-uitgang schijnbaar vermogen"
+      },
+      "battery_soh": {
+        "name": "Accugezondheid"
+      },
+      "battery_temperature": {
+        "name": "Accutemperatuur"
+      },
+      "battery_voltage": {
+        "name": "Accuspanning"
+      },
+      "charge_time_remaining": {
+        "name": "Tijd tot vol"
+      },
+      "discharge_time_remaining": {
+        "name": "Tijd tot leeg"
+      },
+      "energy_ac_output_total": {
+        "name": "AC-uitgang energie totaal"
+      },
+      "energy_battery_discharge_total": {
+        "name": "Accu ontladen energie totaal"
+      },
+      "energy_dc_output_total": {
+        "name": "DC-uitgang energie totaal"
+      },
+      "energy_grid_charge_total": {
+        "name": "Laden van net energie totaal"
+      },
+      "energy_pv_total": {
+        "name": "PV-energie totaal"
+      },
+      "ac_input_current": {
+        "name": "AC-ingang stroom"
+      },
+      "ac_input_frequency": {
+        "name": "AC-ingang frequentie"
+      },
+      "ac_input_power": {
+        "name": "AC-ingang vermogen"
+      },
+      "ac_input_voltage": {
+        "name": "AC-ingang spanning"
+      },
+      "ac_output_frequency": {
+        "name": "AC-uitgang frequentie"
+      },
+      "ac_output_mode": {
+        "name": "AC-uitgang modus"
+      },
+      "ac_output_on": {
+        "name": "AC-uitgang aan"
+      },
+      "ac_output_current": {
+        "name": "AC-uitgang stroom"
+      },
+      "ac_output_power": {
+        "name": "AC-uitgang vermogen"
+      },
+      "ac_output_voltage": {
+        "name": "AC-uitgang spanning"
+      },
+      "ac_p1_current": {
+        "name": "AC fase 1 stroom"
+      },
+      "ac_p1_power": {
+        "name": "AC fase 1 vermogen"
+      },
+      "ac_p1_voltage": {
+        "name": "AC fase 1 spanning"
+      },
+      "ac_p2_current": {
+        "name": "AC fase 2 stroom"
+      },
+      "ac_p2_power": {
+        "name": "AC fase 2 vermogen"
+      },
+      "ac_p2_voltage": {
+        "name": "AC fase 2 spanning"
+      },
+      "ac_p3_current": {
+        "name": "AC fase 3 stroom"
+      },
+      "ac_p3_power": {
+        "name": "AC fase 3 vermogen"
+      },
+      "ac_p3_voltage": {
+        "name": "AC fase 3 spanning"
+      },
+      "total_battery_percent": {
+        "name": "Accu-SOC"
+      },
+      "soc_range_end": {
+        "name": "SOC hoog"
+      },
+      "soc_range_start": {
+        "name": "SOC laag"
+      },
+      "ctrl_eco_min_power_ac": {
+        "name": "ECO minimumvermogen AC"
+      },
+      "ctrl_eco_min_power_dc": {
+        "name": "ECO minimumvermogen DC"
+      },
+      "ctrl_split_phase_mode": {
+        "name": "Split-fasemodus"
+      },
+      "ctrl_charging_mode": {
+        "name": "Laadmodus"
+      },
+      "ctrl_display_timeout": {
+        "name": "Schermtijd"
+      },
+      "ctrl_eco_time_mode": {
+        "name": "ECO-timer"
+      },
+      "ctrl_eco_time_mode_ac": {
+        "name": "ECO-timer AC"
+      },
+      "ctrl_eco_time_mode_dc": {
+        "name": "ECO-timer DC"
+      },
+      "ctrl_led_mode": {
+        "name": "LED-modus"
+      },
+       "ctrl_ups_mode": {
+        "name": "UPS-modus"
+      },
+      "dc_input_current": {
+        "name": "DC-ingang stroom"
+      },
+      "dc_input_power": {
+        "name": "DC-ingang vermogen"
+      },
+      "dc_input_voltage": {
+        "name": "DC-ingang spanning"
+      },
+      "dc_output_on": {
+        "name": "DC-uitgang aan"
+      },
+      "dc_output_power": {
+        "name": "DC-uitgang vermogen"
+      },
+      "device_type": {
+        "name": "Apparaattype"
+      },
+      "device_sn": {
+        "name": "Serienummer"
+      },
+      "grid_frequency": {
+        "name": "Netfrequentie"
+      },
+      "grid_frequency_max_value": {
+        "name": "Netfrequentie maximum"
+      },
+      "grid_frequency_min_value": {
+        "name": "Netfrequentie minimum"
+      },
+      "grid_p1_current": {
+        "name": "Net fase 1 stroom"
+      },
+      "grid_p1_power": {
+        "name": "Net fase 1 vermogen"
+      },
+      "grid_p1_voltage": {
+        "name": "Net fase 1 spanning"
+      },
+      "grid_p2_current": {
+        "name": "Net fase 2 stroom"
+      },
+      "grid_p2_power": {
+        "name": "Net fase 2 vermogen"
+      },
+      "grid_p2_voltage": {
+        "name": "Net fase 2 spanning"
+      },
+      "grid_p3_current": {
+        "name": "Net fase 3 stroom"
+      },
+      "grid_p3_power": {
+        "name": "Net fase 3 vermogen"
+      },
+      "grid_p3_voltage": {
+        "name": "Net fase 3 spanning"
+      },
+      "grid_voltage_max_value": {
+        "name": "Netspanning maximum"
+      },
+      "grid_voltage_min_value": {
+        "name": "Netspanning minimum"
+      },
+      "internal_ac_frequency": {
+        "name": "Interne AC-frequentie"
+      },
+      "internal_ac_voltage": {
+        "name": "Interne AC-spanning"
+      },
+      "internal_dc_input_current": {
+        "name": "Interne DC-ingang stroom"
+      },
+      "internal_dc_input_power": {
+        "name": "Interne DC-ingang vermogen"
+      },
+      "internal_dc_input_voltage": {
+        "name": "Interne DC-ingang spanning"
+      },
+      "power_generation": {
+        "name": "Opgewekte energie"
+      },
+      "power_lifting_on": {
+        "name": "Power lifting aan"
+      },
+      "pv_s1_current": {
+        "name": "PV-string 1 stroom"
+      },
+      "pv_s1_power": {
+        "name": "PV-string 1 vermogen"
+      },
+      "pv_s1_voltage": {
+        "name": "PV-string 1 spanning"
+      },
+      "pv_s2_current": {
+        "name": "PV-string 2 stroom"
+      },
+      "pv_s2_power": {
+        "name": "PV-string 2 vermogen"
+      },
+      "pv_s2_voltage": {
+        "name": "PV-string 2 spanning"
+      },
+      "sm_p1_current": {
+        "name": "Slimme meter fase 1 stroom"
+      },
+      "sm_p1_power": {
+        "name": "Slimme meter fase 1 vermogen"
+      },
+      "sm_p1_voltage": {
+        "name": "Slimme meter fase 1 spanning"
+      },
+      "sm_p2_current": {
+        "name": "Slimme meter fase 2 stroom"
+      },
+      "sm_p2_power": {
+        "name": "Slimme meter fase 2 vermogen"
+      },
+      "sm_p2_voltage": {
+        "name": "Slimme meter fase 2 spanning"
+      },
+      "sm_p3_current": {
+        "name": "Slimme meter fase 3 stroom"
+      },
+      "sm_p3_power": {
+        "name": "Slimme meter fase 3 vermogen"
+      },
+      "sm_p3_voltage": {
+        "name": "Slimme meter fase 3 spanning"
+      },
+      "time_remaining": {
+        "name": "Resterende tijd"
+      },
+      "version_arm": {
+        "name": "ARM-versie"
+      },
+      "version_bms": {
+        "name": "BMS-versie"
+      },
+      "version_dsp": {
+        "name": "DSP-versie"
+      },
+      "wifi_name": {
+        "name": "Wifi-naam"
+      },
+      "pack_voltage": {
+        "name": "Spanning"
+      },
+      "pack_battery_soc": {
+        "name": "SOC"
+      },
+      "pack_cell_voltages": {
+        "name": "Spanning cel {cell_num}"
+      }
+    },
+    "switch": {
+      "ctrl_ac": {
+        "name": "AC-uitgang"
+      },
+      "ctrl_charging_mode": {
+        "name": "Laadmodus"
+      },
+      "ctrl_dc": {
+        "name": "DC-uitgang"
+      },
+      "ctrl_eco": {
+        "name": "ECO-modus"
+      },
+      "ctrl_eco_ac": {
+        "name": "ECO-modus AC"
+      },
+      "ctrl_eco_dc": {
+        "name": "ECO-modus DC"
+      },
+      "ctrl_power_lifting": {
+        "name": "Power lifting"
+      },
+      "ctrl_power_off": {
+        "name": "Uitschakelen"
+      }
+    },
+    "select": {
+      "ctrl_charging_mode": {
+        "name": "Laadmodus"
+      },
+      "ctrl_display_timeout": {
+        "name": "Schermtijd"
+      },
+      "ctrl_eco_time_mode": {
+        "name": "ECO-timer"
+      },
+      "ctrl_eco_time_mode_ac": {
+        "name": "ECO-timer AC"
+      },
+      "ctrl_eco_time_mode_dc": {
+        "name": "ECO-timer DC"
+      },
+      "ctrl_led_mode": {
+        "name": "LED-modus"
+      },
+       "ctrl_ups_mode": {
+        "name": "UPS-modus"
+      }
+    },
+    "binary_sensor": {
+      "eco_ac_on": {
+        "name": "AC-ECO"
+      },
+      "ctrl_ac": {
+        "name": "AC-uitgang"
+      },
+      "ctrl_charging_mode": {
+        "name": "Laadmodus"
+      },
+      "ctrl_dc": {
+        "name": "DC-uitgang"
+      },
+      "ctrl_eco": {
+        "name": "ECO-modus"
+      },
+      "ctrl_eco_ac": {
+        "name": "ECO-modus AC"
+      },
+      "ctrl_eco_dc": {
+        "name": "ECO-modus DC"
+      },
+      "ctrl_generator": {
+        "name": "Generatormodus"
+      },
+      "ctrl_power_lifting": {
+        "name": "Power lifting"
+      },
+      "ctrl_power_off": {
+        "name": "Uitschakelen"
+      },
+      "ctrl_split_phase": {
+        "name": "Split-fase"
+      },
+      "ac_output_on": {
+        "name": "AC-uitgang"
+      },
+      "dc_output_on": {
+        "name": "DC-uitgang"
+      },
+      "power_lifting_on": {
+        "name": "Power lifting"
+      }
+    }
+  }
+}
