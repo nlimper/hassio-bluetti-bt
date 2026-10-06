@@ -61,3 +61,28 @@ Gemeten in doorvoermodus (Shelly aan, omvormer 0 W), 8 metingen naast een Shelly
   beide watt zijn: de Bluetti-waarden zijn **schijnbaar vermogen (VA)**. Arbeidsfactor ≈ 0,84.
 - De aparte VA-registers 1433 en 1316 zijn op dit model 0.
 - Een register met het werkelijke vermogen (W) is niet gevonden.
+
+## Library-definitie (EL200V2) uitgelezen
+
+Met `tools/read_device.py` en de nieuwe definitie in `bluetti-bt-lib` (alleen lezen):
+
+- Accuspanning 6003 is **÷100** (39,91 V; 12S LFP, max laadspanning 6010 = 42,6 V).
+- Accutemperatuur 6007 − 40 = 35 °C, SOH 99 %.
+- Energietellers 150–167 zijn 32-bits met het lage woord eerst (zoals `bit32HexSwap` in de app).
+- Register 1300 (netfrequentie) wisselt tussen 500 en 0: niet gebruikt. Frequentie komt uit 1500.
+
+## Schrijftest (6 okt 2026)
+
+Op register 2067 (schermtijd), het enige register dat het testscript mocht schrijven
+(`tools/write_test_display.py`, alleen de waarden 4 en 5):
+
+| Stap | Resultaat |
+|---|---|
+| begin | 5 (nooit) |
+| 5 schrijven | teruggelezen 5 |
+| 4 schrijven | teruggelezen 4: **versleuteld schrijven werkt** |
+| 5 terugzetten | eerste poging time-out, derde poging gelukt: teruggelezen 5 |
+
+Schrijven via de library (`DeviceWriter`, eigen verbinding per schrijfactie) loopt af en toe
+tegen een time-out aan bij het opnieuw verbinden direct na een leesactie. Een schrijfactie moet dus
+altijd worden teruggelezen en zo nodig herhaald.

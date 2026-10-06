@@ -25,6 +25,7 @@ instellingen die de bestaande integraties missen.
 - **De repo is openbaar**: geen MAC-adressen, serienummers, tokens, sleutels, wifi-namen,
   e-mailadressen of details van de eigen HA-installatie committen.
 - `tools/dumps/` bevat serienummers en blijft buiten git.
+- Bestanden met LF-regeleinden schrijven (beide repo's gebruiken LF).
 
 ## Werkomgeving
 
