@@ -67,7 +67,8 @@ FIELD_DEVICE_CLASS: Dict[FieldName, SensorDeviceClass] = {
     FieldName.ENERGY_AC_OUTPUT_TOTAL: SensorDeviceClass.ENERGY,
     FieldName.ENERGY_BATTERY_DISCHARGE_TOTAL: SensorDeviceClass.ENERGY,
     FieldName.ENERGY_DC_OUTPUT_TOTAL: SensorDeviceClass.ENERGY,
-    FieldName.ENERGY_GRID_CHARGE_TOTAL: SensorDeviceClass.ENERGY,
+    FieldName.ENERGY_AC_INPUT_TOTAL: SensorDeviceClass.ENERGY,
+    FieldName.BATTERY_CURRENT: SensorDeviceClass.CURRENT,
     FieldName.ENERGY_PV_TOTAL: SensorDeviceClass.ENERGY,
     # Battery packs
     FieldName.PACK_BATTERY_SOC: SensorDeviceClass.BATTERY,

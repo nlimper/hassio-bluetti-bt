@@ -36,6 +36,9 @@
       "battery_soh": {
         "name": "Saúde da bateria"
       },
+      "battery_current": {
+        "name": "Corrente da bateria"
+      },
       "battery_temperature": {
         "name": "Temperatura da bateria"
       },
@@ -57,8 +60,8 @@
       "energy_dc_output_total": {
         "name": "Energia total de saída CC"
       },
-      "energy_grid_charge_total": {
-        "name": "Energia total carregada da rede"
+      "energy_ac_input_total": {
+        "name": "Energia total de entrada CA"
       },
       "energy_pv_total": {
         "name": "Energia FV total"

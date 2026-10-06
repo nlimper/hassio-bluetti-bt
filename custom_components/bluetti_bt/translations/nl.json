@@ -38,6 +38,9 @@
       "battery_soh": {
         "name": "Accugezondheid"
       },
+      "battery_current": {
+        "name": "Accustroom"
+      },
       "battery_temperature": {
         "name": "Accutemperatuur"
       },
@@ -59,8 +62,8 @@
       "energy_dc_output_total": {
         "name": "DC-uitgang energie totaal"
       },
-      "energy_grid_charge_total": {
-        "name": "Laden van net energie totaal"
+      "energy_ac_input_total": {
+        "name": "AC-ingang energie totaal"
       },
       "energy_pv_total": {
         "name": "PV-energie totaal"

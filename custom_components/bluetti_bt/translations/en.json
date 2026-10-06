@@ -38,6 +38,9 @@
       "battery_soh": {
         "name": "Battery Health"
       },
+      "battery_current": {
+        "name": "Battery Current"
+      },
       "battery_temperature": {
         "name": "Battery Temperature"
       },
@@ -59,8 +62,8 @@
       "energy_dc_output_total": {
         "name": "DC Output Energy Total"
       },
-      "energy_grid_charge_total": {
-        "name": "Grid Charge Energy Total"
+      "energy_ac_input_total": {
+        "name": "AC Input Energy Total"
       },
       "energy_pv_total": {
         "name": "PV Energy Total"

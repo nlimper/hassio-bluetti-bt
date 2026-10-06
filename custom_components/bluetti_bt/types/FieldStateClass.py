@@ -68,7 +68,8 @@ FIELD_STATE_CLASS: Dict[FieldName, SensorStateClass] = {
     FieldName.ENERGY_AC_OUTPUT_TOTAL: SensorStateClass.TOTAL_INCREASING,
     FieldName.ENERGY_BATTERY_DISCHARGE_TOTAL: SensorStateClass.TOTAL_INCREASING,
     FieldName.ENERGY_DC_OUTPUT_TOTAL: SensorStateClass.TOTAL_INCREASING,
-    FieldName.ENERGY_GRID_CHARGE_TOTAL: SensorStateClass.TOTAL_INCREASING,
+    FieldName.ENERGY_AC_INPUT_TOTAL: SensorStateClass.TOTAL_INCREASING,
+    FieldName.BATTERY_CURRENT: SensorStateClass.MEASUREMENT,
     FieldName.ENERGY_PV_TOTAL: SensorStateClass.TOTAL_INCREASING,
     # Battery packs
     FieldName.PACK_BATTERY_SOC: SensorStateClass.MEASUREMENT,
