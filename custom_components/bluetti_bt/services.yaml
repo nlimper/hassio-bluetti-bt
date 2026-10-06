@@ -1,0 +1,27 @@
+set_time_slot:
+  target:
+    entity:
+      integration: bluetti_bt
+      domain: select
+  fields:
+    mode:
+      required: true
+      example: charge
+      selector:
+        select:
+          options:
+            - "off"
+            - charge
+            - discharge
+            - standby
+          translation_key: time_slot_mode
+    start:
+      required: true
+      example: "13:00"
+      selector:
+        time:
+    end:
+      required: true
+      example: "15:30"
+      selector:
+        time:

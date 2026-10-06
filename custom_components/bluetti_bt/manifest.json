@@ -27,15 +27,15 @@
         { "local_name": "PR1*" },
         { "local_name": "PR3*" }
     ],
-    "codeowners": ["@Patrick762"],
+    "codeowners": ["@Patrick762", "@nlimper"],
     "config_flow": true,
     "dependencies": ["bluetooth_adapters"],
-    "documentation": "https://github.com/Patrick762/hassio-bluetti-bt",
+    "documentation": "https://github.com/nlimper/hassio-bluetti-bt",
     "integration_type": "device",
     "iot_class": "local_polling",
-    "issue_tracker": "https://github.com/Patrick762/hassio-bluetti-bt/issues",
+    "issue_tracker": "https://github.com/nlimper/hassio-bluetti-bt/issues",
     "requirements": [
-        "bluetti-bt-lib @ git+https://github.com/nlimper/bluetti-bt-lib.git@10e3237c33d37ad73da82ce0620a778a5868f606"
+        "bluetti-bt-lib @ git+https://github.com/nlimper/bluetti-bt-lib.git@a51e16c3413288fdc4f790c6031fe6ec0daec367"
     ],
-    "version": "0.2.13"
+    "version": "0.3.0"
 }

@@ -29,78 +29,6 @@
   },
   "entity": {
     "sensor": {
-      "time_slot_1_times": {
-        "name": "Tijdvak 1 tijden"
-      },
-      "time_slot_2_times": {
-        "name": "Tijdvak 2 tijden"
-      },
-      "time_slot_3_times": {
-        "name": "Tijdvak 3 tijden"
-      },
-      "time_slot_4_times": {
-        "name": "Tijdvak 4 tijden"
-      },
-      "time_slot_5_times": {
-        "name": "Tijdvak 5 tijden"
-      },
-      "time_slot_6_times": {
-        "name": "Tijdvak 6 tijden"
-      },
-      "time_slot_1": {
-        "name": "Tijdvak 1",
-        "state": {
-          "off": "Uit",
-          "charge": "Laden",
-          "discharge": "Ontladen",
-          "standby": "Stand-by"
-        }
-      },
-      "time_slot_2": {
-        "name": "Tijdvak 2",
-        "state": {
-          "off": "Uit",
-          "charge": "Laden",
-          "discharge": "Ontladen",
-          "standby": "Stand-by"
-        }
-      },
-      "time_slot_3": {
-        "name": "Tijdvak 3",
-        "state": {
-          "off": "Uit",
-          "charge": "Laden",
-          "discharge": "Ontladen",
-          "standby": "Stand-by"
-        }
-      },
-      "time_slot_4": {
-        "name": "Tijdvak 4",
-        "state": {
-          "off": "Uit",
-          "charge": "Laden",
-          "discharge": "Ontladen",
-          "standby": "Stand-by"
-        }
-      },
-      "time_slot_5": {
-        "name": "Tijdvak 5",
-        "state": {
-          "off": "Uit",
-          "charge": "Laden",
-          "discharge": "Ontladen",
-          "standby": "Stand-by"
-        }
-      },
-      "time_slot_6": {
-        "name": "Tijdvak 6",
-        "state": {
-          "off": "Uit",
-          "charge": "Laden",
-          "discharge": "Ontladen",
-          "standby": "Stand-by"
-        }
-      },
       "ac_input_apparent_power": {
         "name": "AC-ingang schijnbaar vermogen"
       },
@@ -230,7 +158,7 @@
       "ctrl_led_mode": {
         "name": "LED-modus"
       },
-       "ctrl_ups_mode": {
+      "ctrl_ups_mode": {
         "name": "UPS-modus"
       },
       "dc_input_current": {
@@ -393,6 +321,9 @@
       },
       "soc_range_end": {
         "name": "SOC hoog"
+      },
+      "max_grid_charge_current": {
+        "name": "Max netlaadstroom"
       }
     },
     "switch": {
@@ -429,25 +360,121 @@
     },
     "select": {
       "ctrl_charging_mode": {
-        "name": "Laadmodus"
+        "name": "Laadmodus",
+        "state": {
+          "standard": "Standaard",
+          "silent": "Stil",
+          "turbo": "Turbo",
+          "custom": "Aangepast"
+        }
       },
       "ctrl_display_timeout": {
-        "name": "Schermtijd"
+        "name": "Schermtijd",
+        "state": {
+          "sec30": "30 seconden",
+          "min1": "1 minuut",
+          "min5": "5 minuten",
+          "never": "Nooit"
+        }
       },
       "ctrl_eco_time_mode": {
-        "name": "ECO-timer"
+        "name": "ECO-timer",
+        "state": {
+          "hours1": "1 uur",
+          "hours2": "2 uur",
+          "hours3": "3 uur",
+          "hours4": "4 uur"
+        }
       },
       "ctrl_eco_time_mode_ac": {
-        "name": "ECO-timer AC"
+        "name": "ECO-timer AC",
+        "state": {
+          "hours1": "1 uur",
+          "hours2": "2 uur",
+          "hours3": "3 uur",
+          "hours4": "4 uur"
+        }
       },
       "ctrl_eco_time_mode_dc": {
-        "name": "ECO-timer DC"
+        "name": "ECO-timer DC",
+        "state": {
+          "hours1": "1 uur",
+          "hours2": "2 uur",
+          "hours3": "3 uur",
+          "hours4": "4 uur"
+        }
       },
       "ctrl_led_mode": {
-        "name": "LED-modus"
+        "name": "LED-modus",
+        "state": {
+          "high": "Hoog",
+          "low": "Laag",
+          "off": "Uit",
+          "sos": "SOS"
+        }
       },
-       "ctrl_ups_mode": {
-        "name": "UPS-modus"
+      "ctrl_ups_mode": {
+        "name": "UPS-modus",
+        "state": {
+          "customized": "Aangepaste UPS",
+          "pv_priority": "PV-voorrang UPS",
+          "standard": "Standaard UPS",
+          "time_control": "Tijdgestuurde UPS"
+        }
+      },
+      "time_slot_1": {
+        "name": "Tijdvak 1",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
+      "time_slot_2": {
+        "name": "Tijdvak 2",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
+      "time_slot_3": {
+        "name": "Tijdvak 3",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
+      "time_slot_4": {
+        "name": "Tijdvak 4",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
+      "time_slot_5": {
+        "name": "Tijdvak 5",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
+      },
+      "time_slot_6": {
+        "name": "Tijdvak 6",
+        "state": {
+          "off": "Uit",
+          "charge": "Laden",
+          "discharge": "Ontladen",
+          "standby": "Stand-by"
+        }
       }
     },
     "binary_sensor": {
@@ -498,6 +525,74 @@
       },
       "power_lifting_on": {
         "name": "Power lifting"
+      }
+    },
+    "time": {
+      "time_slot_1_start": {
+        "name": "Tijdvak 1 start"
+      },
+      "time_slot_1_end": {
+        "name": "Tijdvak 1 eind"
+      },
+      "time_slot_2_start": {
+        "name": "Tijdvak 2 start"
+      },
+      "time_slot_2_end": {
+        "name": "Tijdvak 2 eind"
+      },
+      "time_slot_3_start": {
+        "name": "Tijdvak 3 start"
+      },
+      "time_slot_3_end": {
+        "name": "Tijdvak 3 eind"
+      },
+      "time_slot_4_start": {
+        "name": "Tijdvak 4 start"
+      },
+      "time_slot_4_end": {
+        "name": "Tijdvak 4 eind"
+      },
+      "time_slot_5_start": {
+        "name": "Tijdvak 5 start"
+      },
+      "time_slot_5_end": {
+        "name": "Tijdvak 5 eind"
+      },
+      "time_slot_6_start": {
+        "name": "Tijdvak 6 start"
+      },
+      "time_slot_6_end": {
+        "name": "Tijdvak 6 eind"
+      }
+    }
+  },
+  "services": {
+    "set_time_slot": {
+      "name": "Tijdvak instellen",
+      "description": "Zet modus, start en eind van een tijdvak in één schrijfactie.",
+      "fields": {
+        "mode": {
+          "name": "Modus",
+          "description": "Uit, laden, ontladen of stand-by."
+        },
+        "start": {
+          "name": "Start",
+          "description": "Begintijd."
+        },
+        "end": {
+          "name": "Eind",
+          "description": "Eindtijd; moet bij een actief tijdvak na de start liggen."
+        }
+      }
+    }
+  },
+  "selector": {
+    "time_slot_mode": {
+      "options": {
+        "off": "Uit",
+        "charge": "Laden",
+        "discharge": "Ontladen",
+        "standby": "Stand-by"
       }
     }
   }

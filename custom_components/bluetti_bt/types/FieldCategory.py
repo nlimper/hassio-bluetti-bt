@@ -29,6 +29,7 @@ CONFIGS = [
     FieldName.CTRL_TIME_CONTROL,
     FieldName.BATTERY_SOC_RANGE_START,
     FieldName.BATTERY_SOC_RANGE_END,
+    FieldName.MAX_GRID_CHARGE_CURRENT,
 ]
 
 

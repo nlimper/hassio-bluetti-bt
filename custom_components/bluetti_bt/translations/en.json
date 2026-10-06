@@ -29,78 +29,6 @@
   },
   "entity": {
     "sensor": {
-      "time_slot_1_times": {
-        "name": "Time Slot 1 Times"
-      },
-      "time_slot_2_times": {
-        "name": "Time Slot 2 Times"
-      },
-      "time_slot_3_times": {
-        "name": "Time Slot 3 Times"
-      },
-      "time_slot_4_times": {
-        "name": "Time Slot 4 Times"
-      },
-      "time_slot_5_times": {
-        "name": "Time Slot 5 Times"
-      },
-      "time_slot_6_times": {
-        "name": "Time Slot 6 Times"
-      },
-      "time_slot_1": {
-        "name": "Time Slot 1",
-        "state": {
-          "off": "Off",
-          "charge": "Charge",
-          "discharge": "Discharge",
-          "standby": "Standby"
-        }
-      },
-      "time_slot_2": {
-        "name": "Time Slot 2",
-        "state": {
-          "off": "Off",
-          "charge": "Charge",
-          "discharge": "Discharge",
-          "standby": "Standby"
-        }
-      },
-      "time_slot_3": {
-        "name": "Time Slot 3",
-        "state": {
-          "off": "Off",
-          "charge": "Charge",
-          "discharge": "Discharge",
-          "standby": "Standby"
-        }
-      },
-      "time_slot_4": {
-        "name": "Time Slot 4",
-        "state": {
-          "off": "Off",
-          "charge": "Charge",
-          "discharge": "Discharge",
-          "standby": "Standby"
-        }
-      },
-      "time_slot_5": {
-        "name": "Time Slot 5",
-        "state": {
-          "off": "Off",
-          "charge": "Charge",
-          "discharge": "Discharge",
-          "standby": "Standby"
-        }
-      },
-      "time_slot_6": {
-        "name": "Time Slot 6",
-        "state": {
-          "off": "Off",
-          "charge": "Charge",
-          "discharge": "Discharge",
-          "standby": "Standby"
-        }
-      },
       "ac_input_apparent_power": {
         "name": "AC Input Apparent Power"
       },
@@ -156,7 +84,7 @@
         "name": "AC Output Mode"
       },
       "ac_output_on": {
-        "name": "AC Output eingeschaltet"
+        "name": "AC Output on"
       },
       "ac_output_current": {
         "name": "AC Output Current"
@@ -230,7 +158,7 @@
       "ctrl_led_mode": {
         "name": "LED Mode"
       },
-       "ctrl_ups_mode": {
+      "ctrl_ups_mode": {
         "name": "UPS Mode"
       },
       "dc_input_current": {
@@ -393,6 +321,9 @@
       },
       "soc_range_end": {
         "name": "SOC high"
+      },
+      "max_grid_charge_current": {
+        "name": "Max Grid Charge Current"
       }
     },
     "switch": {
@@ -429,25 +360,121 @@
     },
     "select": {
       "ctrl_charging_mode": {
-        "name": "Charging Mode"
+        "name": "Charging Mode",
+        "state": {
+          "standard": "Standard",
+          "silent": "Silent",
+          "turbo": "Turbo",
+          "custom": "Custom"
+        }
       },
       "ctrl_display_timeout": {
-        "name": "Display Timeout"
+        "name": "Display Timeout",
+        "state": {
+          "sec30": "30 seconds",
+          "min1": "1 minute",
+          "min5": "5 minutes",
+          "never": "Never"
+        }
       },
       "ctrl_eco_time_mode": {
-        "name": "Eco Timer"
+        "name": "Eco Timer",
+        "state": {
+          "hours1": "1 hour",
+          "hours2": "2 hours",
+          "hours3": "3 hours",
+          "hours4": "4 hours"
+        }
       },
       "ctrl_eco_time_mode_ac": {
-        "name": "Eco Timer AC"
+        "name": "Eco Timer AC",
+        "state": {
+          "hours1": "1 hour",
+          "hours2": "2 hours",
+          "hours3": "3 hours",
+          "hours4": "4 hours"
+        }
       },
       "ctrl_eco_time_mode_dc": {
-        "name": "Eco Timer DC"
+        "name": "Eco Timer DC",
+        "state": {
+          "hours1": "1 hour",
+          "hours2": "2 hours",
+          "hours3": "3 hours",
+          "hours4": "4 hours"
+        }
       },
       "ctrl_led_mode": {
-        "name": "LED Mode"
+        "name": "LED Mode",
+        "state": {
+          "high": "High",
+          "low": "Low",
+          "off": "Off",
+          "sos": "SOS"
+        }
       },
-       "ctrl_ups_mode": {
-        "name": "UPS Mode"
+      "ctrl_ups_mode": {
+        "name": "UPS Mode",
+        "state": {
+          "customized": "Customized UPS",
+          "pv_priority": "PV Priority UPS",
+          "standard": "Standard UPS",
+          "time_control": "Time Control UPS"
+        }
+      },
+      "time_slot_1": {
+        "name": "Time Slot 1",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_2": {
+        "name": "Time Slot 2",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_3": {
+        "name": "Time Slot 3",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_4": {
+        "name": "Time Slot 4",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_5": {
+        "name": "Time Slot 5",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
+      },
+      "time_slot_6": {
+        "name": "Time Slot 6",
+        "state": {
+          "off": "Off",
+          "charge": "Charge",
+          "discharge": "Discharge",
+          "standby": "Standby"
+        }
       }
     },
     "binary_sensor": {
@@ -498,6 +525,74 @@
       },
       "power_lifting_on": {
         "name": "Power Lifting"
+      }
+    },
+    "time": {
+      "time_slot_1_start": {
+        "name": "Time Slot 1 Start"
+      },
+      "time_slot_1_end": {
+        "name": "Time Slot 1 End"
+      },
+      "time_slot_2_start": {
+        "name": "Time Slot 2 Start"
+      },
+      "time_slot_2_end": {
+        "name": "Time Slot 2 End"
+      },
+      "time_slot_3_start": {
+        "name": "Time Slot 3 Start"
+      },
+      "time_slot_3_end": {
+        "name": "Time Slot 3 End"
+      },
+      "time_slot_4_start": {
+        "name": "Time Slot 4 Start"
+      },
+      "time_slot_4_end": {
+        "name": "Time Slot 4 End"
+      },
+      "time_slot_5_start": {
+        "name": "Time Slot 5 Start"
+      },
+      "time_slot_5_end": {
+        "name": "Time Slot 5 End"
+      },
+      "time_slot_6_start": {
+        "name": "Time Slot 6 Start"
+      },
+      "time_slot_6_end": {
+        "name": "Time Slot 6 End"
+      }
+    }
+  },
+  "services": {
+    "set_time_slot": {
+      "name": "Set time slot",
+      "description": "Set mode, start and end of a time slot in one write.",
+      "fields": {
+        "mode": {
+          "name": "Mode",
+          "description": "Off, charge, discharge or standby."
+        },
+        "start": {
+          "name": "Start",
+          "description": "Start time."
+        },
+        "end": {
+          "name": "End",
+          "description": "End time; must be after the start for an active slot."
+        }
+      }
+    }
+  },
+  "selector": {
+    "time_slot_mode": {
+      "options": {
+        "off": "Off",
+        "charge": "Charge",
+        "discharge": "Discharge",
+        "standby": "Standby"
       }
     }
   }

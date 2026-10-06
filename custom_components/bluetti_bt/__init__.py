@@ -28,6 +28,7 @@ PLATFORMS: List[Platform] = [
     Platform.SWITCH,
     Platform.SELECT,
     Platform.NUMBER,
+    Platform.TIME,
 ]
 
 

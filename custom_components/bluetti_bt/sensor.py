@@ -5,7 +5,7 @@ from enum import Enum
 import logging
 from decimal import Decimal
 from typing import List
-from homeassistant.components.sensor import SensorDeviceClass, SensorEntity
+from homeassistant.components.sensor import SensorEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import EntityCategory
@@ -13,8 +13,6 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from bluetti_bt_lib import build_device, FieldName, get_unit
-from bluetti_bt_lib.enums import TimeSlotMode
-from bluetti_bt_lib.fields import TimeSlot, TimeSlotField
 
 from . import device_info as dev_info, get_unique_id, FullDeviceConfig
 from .const import DATA_COORDINATOR, DOMAIN, MANUFACTURER
@@ -59,29 +57,6 @@ async def async_setup_entry(
         device_class = get_device_class(field_name)
         state_class = get_state_class(field_name)
         category = None if config.use_encryption else get_category(field_name)
-
-        if isinstance(field, TimeSlotField):
-            sensors_to_add.append(
-                BluettiSensor(
-                    coordinator,
-                    device_info,
-                    field.address,
-                    field.name,
-                    device_class=SensorDeviceClass.ENUM,
-                    options=[m.name.lower() for m in TimeSlotMode],
-                    logger=logger,
-                )
-            )
-            sensors_to_add.append(
-                BluettiTimeSlotTimesSensor(
-                    coordinator,
-                    device_info,
-                    field.address,
-                    field.name,
-                    logger=logger,
-                )
-            )
-            continue
 
         if unit is not None:
             sensors_to_add.append(
@@ -233,8 +208,6 @@ class BluettiSensor(CoordinatorEntity, SensorEntity):
         self._attr_state_class = state_class
         self._attr_entity_category = category
         self._options = options
-        if options is not None:
-            self._attr_options = options
 
     @property
     def available(self) -> bool:
@@ -300,7 +273,6 @@ class BluettiSensor(CoordinatorEntity, SensorEntity):
             and not isinstance(response_data, Enum)
             and not isinstance(response_data, str)
             and not isinstance(response_data, List)
-            and not isinstance(response_data, TimeSlot)
         ):
             self._logger.warning(
                 "Invalid response data type from coordinator (sensor.%s): %s has type %s",
@@ -318,13 +290,7 @@ class BluettiSensor(CoordinatorEntity, SensorEntity):
         self._set_available()
 
         # Different for enum and numeric
-        if isinstance(response_data, TimeSlot):
-            self._attr_native_value = response_data.mode.name.lower()
-            self._attr_extra_state_attributes = {
-                "start": response_data.start,
-                "end": response_data.end,
-            }
-        elif isinstance(response_data, Enum):
+        if isinstance(response_data, Enum):
             # Enum
             self._attr_native_value = response_data.name
         elif isinstance(response_data, List):
@@ -334,30 +300,3 @@ class BluettiSensor(CoordinatorEntity, SensorEntity):
             self._attr_native_value = response_data
         self.async_write_ha_state()
 
-
-class BluettiTimeSlotTimesSensor(BluettiSensor):
-    """Start and end time of a time slot, e.g. "13:00–15:30" ("–" when unused)."""
-
-    def __init__(self, coordinator, device_info, address, response_key, logger):
-        super().__init__(coordinator, device_info, address, response_key, logger=logger)
-        self._attr_translation_key = f"{response_key}_times"
-        self._attr_unique_id = get_unique_id(
-            f"{device_info.get('name')} {response_key}_times"
-        )
-        self._attr_icon = "mdi:clock-outline"
-
-    @callback
-    def _handle_coordinator_update(self) -> None:
-        """Handle updated data from the coordinator."""
-        data = self.coordinator.data
-        slot = data.get(self._response_key) if isinstance(data, dict) else None
-        if not isinstance(slot, TimeSlot):
-            self._set_unavailable("No data")
-            return
-
-        self._set_available()
-        if slot.start == slot.end == "00:00":
-            self._attr_native_value = "–"
-        else:
-            self._attr_native_value = f"{slot.start}–{slot.end}"
-        self.async_write_ha_state()

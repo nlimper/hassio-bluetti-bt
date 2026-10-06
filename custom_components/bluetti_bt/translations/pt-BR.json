@@ -27,118 +27,410 @@
   },
   "entity": {
     "sensor": {
-      "time_slot_1_times": { "name": "Intervalo 1 horários" },
-      "time_slot_2_times": { "name": "Intervalo 2 horários" },
-      "time_slot_3_times": { "name": "Intervalo 3 horários" },
-      "time_slot_4_times": { "name": "Intervalo 4 horários" },
-      "time_slot_5_times": { "name": "Intervalo 5 horários" },
-      "time_slot_6_times": { "name": "Intervalo 6 horários" },
-      "time_slot_1": { "name": "Intervalo 1", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
-      "time_slot_2": { "name": "Intervalo 2", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
-      "time_slot_3": { "name": "Intervalo 3", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
-      "time_slot_4": { "name": "Intervalo 4", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
-      "time_slot_5": { "name": "Intervalo 5", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
-      "time_slot_6": { "name": "Intervalo 6", "state": { "off": "Desligado", "charge": "Carregar", "discharge": "Descarregar", "standby": "Em espera" } },
-      "ac_input_apparent_power": { "name": "Potência aparente de entrada CA" },
-      "ac_output_apparent_power": { "name": "Potência aparente de saída CA" },
-      "battery_soh": { "name": "Saúde da bateria" },
-      "battery_temperature": { "name": "Temperatura da bateria" },
-      "battery_voltage": { "name": "Tensão da bateria" },
-      "charge_time_remaining": { "name": "Tempo até carga completa" },
-      "discharge_time_remaining": { "name": "Tempo até descarga" },
-      "energy_ac_output_total": { "name": "Energia total de saída CA" },
-      "energy_battery_discharge_total": { "name": "Energia total descarregada da bateria" },
-      "energy_dc_output_total": { "name": "Energia total de saída CC" },
-      "energy_grid_charge_total": { "name": "Energia total carregada da rede" },
-      "energy_pv_total": { "name": "Energia FV total" },
-      "ac_input_current": { "name": "Corrente de entrada CA" },
-      "ac_input_frequency": { "name": "Frequência de entrada CA" },
-      "ac_input_power": { "name": "Potência de entrada CA" },
-      "ac_input_voltage": { "name": "Tensão de entrada CA" },
-      "ac_output_frequency": { "name": "Frequência de saída CA" },
-      "ac_output_mode": { "name": "Modo de saída CA" },
-      "ac_output_on": { "name": "Saída CA ligada" },
-      "ac_output_current": { "name": "Corrente de saída CA" },
-      "ac_output_power": { "name": "Potência de saída CA" },
-      "ac_output_voltage": { "name": "Tensão de saída CA" },
-
-      "ac_p1_current": { "name": "Corrente CA Fase 1" },
-      "ac_p1_power": { "name": "Potência CA Fase 1" },
-      "ac_p1_voltage": { "name": "Tensão CA Fase 1" },
-      "ac_p2_current": { "name": "Corrente CA Fase 2" },
-      "ac_p2_power": { "name": "Potência CA Fase 2" },
-      "ac_p2_voltage": { "name": "Tensão CA Fase 2" },
-      "ac_p3_current": { "name": "Corrente CA Fase 3" },
-      "ac_p3_power": { "name": "Potência CA Fase 3" },
-      "ac_p3_voltage": { "name": "Tensão CA Fase 3" },
-
-      "total_battery_percent": { "name": "Carga da bateria (SOC)" },
-
-      "dc_input_current": { "name": "Corrente de entrada CC" },
-      "dc_input_power": { "name": "Potência de entrada CC" },
-      "dc_input_voltage": { "name": "Tensão de entrada CC" },
-      "dc_output_on": { "name": "Saída CC ligada" },
-      "dc_output_power": { "name": "Potência de saída CC" },
-
-      "device_type": { "name": "Tipo de dispositivo" },
-      "device_sn": { "name": "Número de série" },
-
-      "grid_frequency": { "name": "Frequência da rede" },
-      "grid_p1_current": { "name": "Corrente da rede Fase 1" },
-      "grid_p1_power": { "name": "Potência da rede Fase 1" },
-      "grid_p1_voltage": { "name": "Tensão da rede Fase 1" },
-      "grid_p2_current": { "name": "Corrente da rede Fase 2" },
-      "grid_p2_power": { "name": "Potência da rede Fase 2" },
-      "grid_p2_voltage": { "name": "Tensão da rede Fase 2" },
-      "grid_p3_current": { "name": "Corrente da rede Fase 3" },
-      "grid_p3_power": { "name": "Potência da rede Fase 3" },
-      "grid_p3_voltage": { "name": "Tensão da rede Fase 3" },
-
-      "internal_ac_frequency": { "name": "Frequência CA interna" },
-      "internal_ac_voltage": { "name": "Tensão CA interna" },
-      "internal_dc_input_current": { "name": "Corrente de entrada CC interna" },
-      "internal_dc_input_power": { "name": "Potência de entrada CC interna" },
-      "internal_dc_input_voltage": { "name": "Tensão de entrada CC interna" },
-
-      "power_generation": { "name": "Energia gerada" },
-      "power_lifting_on": { "name": "Power Lifting ligado" },
-
-      "pv_s1_current": { "name": "Corrente do string FV 1" },
-      "pv_s1_power": { "name": "Potência do string FV 1" },
-      "pv_s1_voltage": { "name": "Tensão do string FV 1" },
-      "pv_s2_current": { "name": "Corrente do string FV 2" },
-      "pv_s2_power": { "name": "Potência do string FV 2" },
-      "pv_s2_voltage": { "name": "Tensão do string FV 2" },
-
-      "sm_p1_current": { "name": "Corrente do medidor inteligente Fase 1" },
-      "sm_p1_power": { "name": "Potência do medidor inteligente Fase 1" },
-      "sm_p1_voltage": { "name": "Tensão do medidor inteligente Fase 1" },
-      "sm_p2_current": { "name": "Corrente do medidor inteligente Fase 2" },
-      "sm_p2_power": { "name": "Potência do medidor inteligente Fase 2" },
-      "sm_p2_voltage": { "name": "Tensão do medidor inteligente Fase 2" },
-      "sm_p3_current": { "name": "Corrente do medidor inteligente Fase 3" },
-      "sm_p3_power": { "name": "Potência do medidor inteligente Fase 3" },
-      "sm_p3_voltage": { "name": "Tensão do medidor inteligente Fase 3" }
+      "ac_input_apparent_power": {
+        "name": "Potência aparente de entrada CA"
+      },
+      "ac_output_apparent_power": {
+        "name": "Potência aparente de saída CA"
+      },
+      "battery_soh": {
+        "name": "Saúde da bateria"
+      },
+      "battery_temperature": {
+        "name": "Temperatura da bateria"
+      },
+      "battery_voltage": {
+        "name": "Tensão da bateria"
+      },
+      "charge_time_remaining": {
+        "name": "Tempo até carga completa"
+      },
+      "discharge_time_remaining": {
+        "name": "Tempo até descarga"
+      },
+      "energy_ac_output_total": {
+        "name": "Energia total de saída CA"
+      },
+      "energy_battery_discharge_total": {
+        "name": "Energia total descarregada da bateria"
+      },
+      "energy_dc_output_total": {
+        "name": "Energia total de saída CC"
+      },
+      "energy_grid_charge_total": {
+        "name": "Energia total carregada da rede"
+      },
+      "energy_pv_total": {
+        "name": "Energia FV total"
+      },
+      "ac_input_current": {
+        "name": "Corrente de entrada CA"
+      },
+      "ac_input_frequency": {
+        "name": "Frequência de entrada CA"
+      },
+      "ac_input_power": {
+        "name": "Potência de entrada CA"
+      },
+      "ac_input_voltage": {
+        "name": "Tensão de entrada CA"
+      },
+      "ac_output_frequency": {
+        "name": "Frequência de saída CA"
+      },
+      "ac_output_mode": {
+        "name": "Modo de saída CA"
+      },
+      "ac_output_on": {
+        "name": "Saída CA ligada"
+      },
+      "ac_output_current": {
+        "name": "Corrente de saída CA"
+      },
+      "ac_output_power": {
+        "name": "Potência de saída CA"
+      },
+      "ac_output_voltage": {
+        "name": "Tensão de saída CA"
+      },
+      "ac_p1_current": {
+        "name": "Corrente CA Fase 1"
+      },
+      "ac_p1_power": {
+        "name": "Potência CA Fase 1"
+      },
+      "ac_p1_voltage": {
+        "name": "Tensão CA Fase 1"
+      },
+      "ac_p2_current": {
+        "name": "Corrente CA Fase 2"
+      },
+      "ac_p2_power": {
+        "name": "Potência CA Fase 2"
+      },
+      "ac_p2_voltage": {
+        "name": "Tensão CA Fase 2"
+      },
+      "ac_p3_current": {
+        "name": "Corrente CA Fase 3"
+      },
+      "ac_p3_power": {
+        "name": "Potência CA Fase 3"
+      },
+      "ac_p3_voltage": {
+        "name": "Tensão CA Fase 3"
+      },
+      "total_battery_percent": {
+        "name": "Carga da bateria (SOC)"
+      },
+      "dc_input_current": {
+        "name": "Corrente de entrada CC"
+      },
+      "dc_input_power": {
+        "name": "Potência de entrada CC"
+      },
+      "dc_input_voltage": {
+        "name": "Tensão de entrada CC"
+      },
+      "dc_output_on": {
+        "name": "Saída CC ligada"
+      },
+      "dc_output_power": {
+        "name": "Potência de saída CC"
+      },
+      "device_type": {
+        "name": "Tipo de dispositivo"
+      },
+      "device_sn": {
+        "name": "Número de série"
+      },
+      "grid_frequency": {
+        "name": "Frequência da rede"
+      },
+      "grid_p1_current": {
+        "name": "Corrente da rede Fase 1"
+      },
+      "grid_p1_power": {
+        "name": "Potência da rede Fase 1"
+      },
+      "grid_p1_voltage": {
+        "name": "Tensão da rede Fase 1"
+      },
+      "grid_p2_current": {
+        "name": "Corrente da rede Fase 2"
+      },
+      "grid_p2_power": {
+        "name": "Potência da rede Fase 2"
+      },
+      "grid_p2_voltage": {
+        "name": "Tensão da rede Fase 2"
+      },
+      "grid_p3_current": {
+        "name": "Corrente da rede Fase 3"
+      },
+      "grid_p3_power": {
+        "name": "Potência da rede Fase 3"
+      },
+      "grid_p3_voltage": {
+        "name": "Tensão da rede Fase 3"
+      },
+      "internal_ac_frequency": {
+        "name": "Frequência CA interna"
+      },
+      "internal_ac_voltage": {
+        "name": "Tensão CA interna"
+      },
+      "internal_dc_input_current": {
+        "name": "Corrente de entrada CC interna"
+      },
+      "internal_dc_input_power": {
+        "name": "Potência de entrada CC interna"
+      },
+      "internal_dc_input_voltage": {
+        "name": "Tensão de entrada CC interna"
+      },
+      "power_generation": {
+        "name": "Energia gerada"
+      },
+      "power_lifting_on": {
+        "name": "Power Lifting ligado"
+      },
+      "pv_s1_current": {
+        "name": "Corrente do string FV 1"
+      },
+      "pv_s1_power": {
+        "name": "Potência do string FV 1"
+      },
+      "pv_s1_voltage": {
+        "name": "Tensão do string FV 1"
+      },
+      "pv_s2_current": {
+        "name": "Corrente do string FV 2"
+      },
+      "pv_s2_power": {
+        "name": "Potência do string FV 2"
+      },
+      "pv_s2_voltage": {
+        "name": "Tensão do string FV 2"
+      },
+      "sm_p1_current": {
+        "name": "Corrente do medidor inteligente Fase 1"
+      },
+      "sm_p1_power": {
+        "name": "Potência do medidor inteligente Fase 1"
+      },
+      "sm_p1_voltage": {
+        "name": "Tensão do medidor inteligente Fase 1"
+      },
+      "sm_p2_current": {
+        "name": "Corrente do medidor inteligente Fase 2"
+      },
+      "sm_p2_power": {
+        "name": "Potência do medidor inteligente Fase 2"
+      },
+      "sm_p2_voltage": {
+        "name": "Tensão do medidor inteligente Fase 2"
+      },
+      "sm_p3_current": {
+        "name": "Corrente do medidor inteligente Fase 3"
+      },
+      "sm_p3_power": {
+        "name": "Potência do medidor inteligente Fase 3"
+      },
+      "sm_p3_voltage": {
+        "name": "Tensão do medidor inteligente Fase 3"
+      }
     },
     "number": {
-      "soc_range_start": { "name": "SOC mínimo" },
-      "soc_range_end": { "name": "SOC máximo" }
+      "soc_range_start": {
+        "name": "SOC mínimo"
+      },
+      "soc_range_end": {
+        "name": "SOC máximo"
+      },
+      "max_grid_charge_current": {
+        "name": "Corrente máx. de carga da rede"
+      }
     },
     "switch": {
-      "ctrl_grid_charge": { "name": "Carregar da rede" },
-      "ctrl_time_control": { "name": "Controle de horário" },
-      "ctrl_ac": { "name": "Saída CA" },
-      "ctrl_charging_mode": { "name": "Modo de carregamento" },
-      "ctrl_dc": { "name": "Saída CC" },
-      "ctrl_eco": { "name": "Modo ECO" },
-      "ctrl_led_mode": { "name": "Modo do LED" },
-      "ctrl_power_lifting": { "name": "Power Lifting" },
-      "ctrl_power_off": { "name": "Desligar" }
+      "ctrl_grid_charge": {
+        "name": "Carregar da rede"
+      },
+      "ctrl_time_control": {
+        "name": "Controle de horário"
+      },
+      "ctrl_ac": {
+        "name": "Saída CA"
+      },
+      "ctrl_charging_mode": {
+        "name": "Modo de carregamento"
+      },
+      "ctrl_dc": {
+        "name": "Saída CC"
+      },
+      "ctrl_eco": {
+        "name": "Modo ECO"
+      },
+      "ctrl_led_mode": {
+        "name": "Modo do LED"
+      },
+      "ctrl_power_lifting": {
+        "name": "Power Lifting"
+      },
+      "ctrl_power_off": {
+        "name": "Desligar"
+      }
     },
     "select": {
-      "ctrl_charging_mode": { "name": "Modo de carregamento" },
-      "ctrl_eco_time_mode": { "name": "Temporizador ECO" },
-      "ctrl_led_mode": { "name": "Modo do LED" }
+      "ctrl_charging_mode": {
+        "name": "Modo de carregamento",
+        "state": {
+          "standard": "Padrão",
+          "silent": "Silencioso",
+          "turbo": "Turbo",
+          "custom": "Personalizado"
+        }
+      },
+      "ctrl_eco_time_mode": {
+        "name": "Temporizador ECO",
+        "state": {
+          "hours1": "1 hora",
+          "hours2": "2 horas",
+          "hours3": "3 horas",
+          "hours4": "4 horas"
+        }
+      },
+      "ctrl_led_mode": {
+        "name": "Modo do LED",
+        "state": {
+          "high": "Alto",
+          "low": "Baixo",
+          "off": "Desligado",
+          "sos": "SOS"
+        }
+      },
+      "time_slot_1": {
+        "name": "Intervalo 1",
+        "state": {
+          "off": "Desligado",
+          "charge": "Carregar",
+          "discharge": "Descarregar",
+          "standby": "Em espera"
+        }
+      },
+      "time_slot_2": {
+        "name": "Intervalo 2",
+        "state": {
+          "off": "Desligado",
+          "charge": "Carregar",
+          "discharge": "Descarregar",
+          "standby": "Em espera"
+        }
+      },
+      "time_slot_3": {
+        "name": "Intervalo 3",
+        "state": {
+          "off": "Desligado",
+          "charge": "Carregar",
+          "discharge": "Descarregar",
+          "standby": "Em espera"
+        }
+      },
+      "time_slot_4": {
+        "name": "Intervalo 4",
+        "state": {
+          "off": "Desligado",
+          "charge": "Carregar",
+          "discharge": "Descarregar",
+          "standby": "Em espera"
+        }
+      },
+      "time_slot_5": {
+        "name": "Intervalo 5",
+        "state": {
+          "off": "Desligado",
+          "charge": "Carregar",
+          "discharge": "Descarregar",
+          "standby": "Em espera"
+        }
+      },
+      "time_slot_6": {
+        "name": "Intervalo 6",
+        "state": {
+          "off": "Desligado",
+          "charge": "Carregar",
+          "discharge": "Descarregar",
+          "standby": "Em espera"
+        }
+      }
+    },
+    "time": {
+      "time_slot_1_start": {
+        "name": "Intervalo 1 início"
+      },
+      "time_slot_1_end": {
+        "name": "Intervalo 1 fim"
+      },
+      "time_slot_2_start": {
+        "name": "Intervalo 2 início"
+      },
+      "time_slot_2_end": {
+        "name": "Intervalo 2 fim"
+      },
+      "time_slot_3_start": {
+        "name": "Intervalo 3 início"
+      },
+      "time_slot_3_end": {
+        "name": "Intervalo 3 fim"
+      },
+      "time_slot_4_start": {
+        "name": "Intervalo 4 início"
+      },
+      "time_slot_4_end": {
+        "name": "Intervalo 4 fim"
+      },
+      "time_slot_5_start": {
+        "name": "Intervalo 5 início"
+      },
+      "time_slot_5_end": {
+        "name": "Intervalo 5 fim"
+      },
+      "time_slot_6_start": {
+        "name": "Intervalo 6 início"
+      },
+      "time_slot_6_end": {
+        "name": "Intervalo 6 fim"
+      }
+    }
+  },
+  "services": {
+    "set_time_slot": {
+      "name": "Definir intervalo",
+      "description": "Define modo, início e fim de um intervalo de uma só vez.",
+      "fields": {
+        "mode": {
+          "name": "Modo",
+          "description": "Desligado, carregar, descarregar ou em espera."
+        },
+        "start": {
+          "name": "Início",
+          "description": "Hora de início."
+        },
+        "end": {
+          "name": "Fim",
+          "description": "Hora de fim; deve ser depois do início num intervalo ativo."
+        }
+      }
+    }
+  },
+  "selector": {
+    "time_slot_mode": {
+      "options": {
+        "off": "Desligado",
+        "charge": "Carregar",
+        "discharge": "Descarregar",
+        "standby": "Em espera"
+      }
     }
   }
 }
