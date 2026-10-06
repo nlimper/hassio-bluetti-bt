@@ -1,3 +1,9 @@
 */__pycache__/
 *.pyc
 .DS_Store
+
+# local test environment and device dumps (contain serial numbers)
+.venv/
+tools/dumps/
+__pycache__/
+CLAUDE.local.md
