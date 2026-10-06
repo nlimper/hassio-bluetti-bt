@@ -15,6 +15,7 @@
         { "local_name": "EL1*" },
         { "local_name": "EL2*" },
         { "local_name": "EL3*" },
+        { "local_name": "Elite*" },
         { "local_name": "EP2*" },
         { "local_name": "EP5*" },
         { "local_name": "EP6*" },
@@ -33,7 +34,7 @@
     "iot_class": "local_polling",
     "issue_tracker": "https://github.com/Patrick762/hassio-bluetti-bt/issues",
     "requirements": [
-        "bluetti-bt-lib @ git+https://github.com/wannessels/bluetti-bt-lib.git@2090566ce8d6d6dd05e43051f1fecb335e252e67"
+        "bluetti-bt-lib @ git+https://github.com/nlimper/bluetti-bt-lib.git@59873da177abdb7673c70bf6506312c68be65aea"
     ],
     "version": "0.2.13"
 }

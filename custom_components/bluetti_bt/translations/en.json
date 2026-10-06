@@ -29,6 +29,42 @@
   },
   "entity": {
     "sensor": {
+      "ac_input_apparent_power": {
+        "name": "AC Input Apparent Power"
+      },
+      "ac_output_apparent_power": {
+        "name": "AC Output Apparent Power"
+      },
+      "battery_soh": {
+        "name": "Battery Health"
+      },
+      "battery_temperature": {
+        "name": "Battery Temperature"
+      },
+      "battery_voltage": {
+        "name": "Battery Voltage"
+      },
+      "charge_time_remaining": {
+        "name": "Time to Full"
+      },
+      "discharge_time_remaining": {
+        "name": "Time to Empty"
+      },
+      "energy_ac_output_total": {
+        "name": "AC Output Energy Total"
+      },
+      "energy_battery_discharge_total": {
+        "name": "Battery Discharge Energy Total"
+      },
+      "energy_dc_output_total": {
+        "name": "DC Output Energy Total"
+      },
+      "energy_grid_charge_total": {
+        "name": "Grid Charge Energy Total"
+      },
+      "energy_pv_total": {
+        "name": "PV Energy Total"
+      },
       "ac_input_current": {
         "name": "AC Input Current"
       },
@@ -329,6 +365,9 @@
       }
     },
     "binary_sensor": {
+      "eco_ac_on": {
+        "name": "AC ECO"
+      },
       "ctrl_ac": {
         "name": "AC Output"
       },

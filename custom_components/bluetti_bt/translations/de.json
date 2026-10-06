@@ -29,6 +29,42 @@
   },
   "entity": {
     "sensor": {
+      "ac_input_apparent_power": {
+        "name": "AC-Eingang Scheinleistung"
+      },
+      "ac_output_apparent_power": {
+        "name": "AC-Ausgang Scheinleistung"
+      },
+      "battery_soh": {
+        "name": "Batteriezustand"
+      },
+      "battery_temperature": {
+        "name": "Batterietemperatur"
+      },
+      "battery_voltage": {
+        "name": "Batteriespannung"
+      },
+      "charge_time_remaining": {
+        "name": "Zeit bis voll"
+      },
+      "discharge_time_remaining": {
+        "name": "Zeit bis leer"
+      },
+      "energy_ac_output_total": {
+        "name": "AC-Ausgang Energie gesamt"
+      },
+      "energy_battery_discharge_total": {
+        "name": "Batterie-Entladeenergie gesamt"
+      },
+      "energy_dc_output_total": {
+        "name": "DC-Ausgang Energie gesamt"
+      },
+      "energy_grid_charge_total": {
+        "name": "Netzladeenergie gesamt"
+      },
+      "energy_pv_total": {
+        "name": "PV-Energie gesamt"
+      },
       "ac_input_current": {
         "name": "AC Eingang Stromstärke"
       },
@@ -329,6 +365,9 @@
       }
     },
     "binary_sensor": {
+      "eco_ac_on": {
+        "name": "AC ECO"
+      },
       "ctrl_ac": {
         "name": "AC Ausgang"
       },

@@ -27,6 +27,18 @@
   },
   "entity": {
     "sensor": {
+      "ac_input_apparent_power": { "name": "Potência aparente de entrada CA" },
+      "ac_output_apparent_power": { "name": "Potência aparente de saída CA" },
+      "battery_soh": { "name": "Saúde da bateria" },
+      "battery_temperature": { "name": "Temperatura da bateria" },
+      "battery_voltage": { "name": "Tensão da bateria" },
+      "charge_time_remaining": { "name": "Tempo até carga completa" },
+      "discharge_time_remaining": { "name": "Tempo até descarga" },
+      "energy_ac_output_total": { "name": "Energia total de saída CA" },
+      "energy_battery_discharge_total": { "name": "Energia total descarregada da bateria" },
+      "energy_dc_output_total": { "name": "Energia total de saída CC" },
+      "energy_grid_charge_total": { "name": "Energia total carregada da rede" },
+      "energy_pv_total": { "name": "Energia FV total" },
       "ac_input_current": { "name": "Corrente de entrada CA" },
       "ac_input_frequency": { "name": "Frequência de entrada CA" },
       "ac_input_power": { "name": "Potência de entrada CA" },
