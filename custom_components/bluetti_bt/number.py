@@ -1,12 +1,13 @@
-"""Bluetti BT switches."""
+"""Bluetti BT numbers."""
 
 from __future__ import annotations
 import asyncio
 import logging
-from homeassistant.components.select import SelectEntity
+from homeassistant.components.number import NumberEntity, NumberMode
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import EntityCategory
+from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import (
@@ -17,8 +18,9 @@ from bluetti_bt_lib import (
     build_device,
     BluettiDevice,
     FieldName,
+    get_unit,
 )
-from bluetti_bt_lib.fields import SelectField
+from bluetti_bt_lib.fields import NumberField
 
 from .types import FullDeviceConfig, get_category
 from . import device_info as dev_info, get_unique_id
@@ -31,7 +33,7 @@ from .write import async_write_field
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
 ) -> None:
-    """Setup select entities."""
+    """Setup number entities."""
 
     config = FullDeviceConfig.from_dict(entry.data)
     coordinator = hass.data[DOMAIN][entry.entry_id][DATA_COORDINATOR]
@@ -45,20 +47,15 @@ async def async_setup_entry(
         logger.error("No coordinator found")
         return None
 
-    # Generate device info
-    logger.info("Creating selects for device with address %s", config.address)
+    logger.info("Creating numbers for device with address %s", config.address)
     device_info = dev_info(entry)
 
-    # Add switches
     bluetti_device = build_device(config.name)
 
-    switches_to_add = []
-    switch_fields = bluetti_device.get_select_fields()
-    for field in switch_fields:
-        category = get_category(FieldName(field.name))
-
-        switches_to_add.append(
-            BluettiSelect(
+    numbers_to_add = []
+    for field in bluetti_device.get_number_fields():
+        numbers_to_add.append(
+            BluettiNumber(
                 bluetti_device,
                 config.address,
                 coordinator,
@@ -66,16 +63,16 @@ async def async_setup_entry(
                 field,
                 lock,
                 config.use_encryption,
-                category=category,
+                category=get_category(FieldName(field.name)),
                 logger=logger,
             )
         )
 
-    async_add_entities(switches_to_add)
+    async_add_entities(numbers_to_add)
 
 
-class BluettiSelect(CoordinatorEntity, SelectEntity):
-    """Bluetti universal switch."""
+class BluettiNumber(CoordinatorEntity, NumberEntity):
+    """Bluetti universal number."""
 
     def __init__(
         self,
@@ -83,7 +80,7 @@ class BluettiSelect(CoordinatorEntity, SelectEntity):
         address: str,
         coordinator: PollingCoordinator,
         device_info: DeviceInfo,
-        field: SelectField,
+        field: NumberField,
         lock: asyncio.Lock,
         use_encryption: bool = False,
         category: EntityCategory | None = None,
@@ -102,7 +99,6 @@ class BluettiSelect(CoordinatorEntity, SelectEntity):
         self._response_key = field.name
         self._unavailable_counter = 5
         self._lock = lock
-        self._attr_options = [e.name for e in field.e]
 
         self._attr_has_entity_name = True
         self._attr_device_info = device_info
@@ -110,6 +106,11 @@ class BluettiSelect(CoordinatorEntity, SelectEntity):
         self._attr_available = False
         self._attr_unique_id = get_unique_id(e_name)
         self._attr_entity_category = category
+        self._attr_native_min_value = field.min
+        self._attr_native_max_value = field.max
+        self._attr_native_step = 1
+        self._attr_native_unit_of_measurement = get_unit(FieldName(field.name))
+        self._attr_mode = NumberMode.BOX
 
     @property
     def available(self) -> bool:
@@ -117,14 +118,14 @@ class BluettiSelect(CoordinatorEntity, SelectEntity):
         return self._attr_available
 
     def _set_available(self):
-        """Set switch as available."""
+        """Set number as available."""
         self._attr_available = True
         self._unavailable_counter = 0
         self._attr_extra_state_attributes = {}
         self.async_write_ha_state()
 
     def _set_unavailable(self, cause: str = "Unknown"):
-        """Set switch as unavailable."""
+        """Set number as unavailable."""
         self._unavailable_counter += 1
 
         self._attr_extra_state_attributes = {
@@ -141,54 +142,45 @@ class BluettiSelect(CoordinatorEntity, SelectEntity):
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
 
-        if self.coordinator.data is None:
-            self._logger.debug(
-                "Data from coordinator is None",
-            )
-            self._set_unavailable("Data is None")
-            return
-
-        self._logger.debug(
-            "Updating state of %s", unique_id_logable(self._attr_unique_id)
-        )
         if not isinstance(self.coordinator.data, dict):
-            self._logger.debug(
-                "Invalid data from coordinator (select.%s)",
-                unique_id_logable(self._attr_unique_id),
-            )
             self._set_unavailable("Invalid data")
             return
 
         response_data = self.coordinator.data.get(self._response_key)
-        if response_data is None:
-            self._set_unavailable("No data")
-            return
-
-        if not isinstance(response_data, self._field.e):
-            self._logger.warning(
-                "Invalid response data type from coordinator (select.%s): %s",
+        if not isinstance(response_data, int) or isinstance(response_data, bool):
+            self._logger.debug(
+                "No valid data for number.%s: %s",
                 unique_id_logable(self._attr_unique_id),
                 response_data,
             )
-            self._set_unavailable("Invalid data type")
+            self._set_unavailable("No data")
             return
 
         self._set_available()
-        self.current_option = response_data.name
+        self._attr_native_value = response_data
         self.async_write_ha_state()
 
-    async def async_select_option(self, option: str):
-        """Set the entity to value."""
-        self._logger.debug(
-            "Set %s on %s to %s",
-            self._response_key,
-            mac_loggable(self._address),
-            option,
-        )
-        await self.write_to_device(option)
+    async def async_set_native_value(self, value: float) -> None:
+        """Set the value on the device."""
+        if value != int(value):
+            raise HomeAssistantError(f"{self._field.name} takes whole numbers only")
+        target = int(value)
 
-    async def write_to_device(self, state: str):
-        """Write to device and confirm by reading it back."""
+        data = self.coordinator.data if isinstance(self.coordinator.data, dict) else {}
+        below = data.get(self._field.must_be_below) if self._field.must_be_below else None
+        above = data.get(self._field.must_be_above) if self._field.must_be_above else None
+        if isinstance(below, int) and target >= below:
+            raise HomeAssistantError(
+                f"{self._field.name} must stay below {self._field.must_be_below} ({below})"
+            )
+        if isinstance(above, int) and target <= above:
+            raise HomeAssistantError(
+                f"{self._field.name} must stay above {self._field.must_be_above} ({above})"
+            )
+
+        self._logger.debug(
+            "Set %s on %s to %s", self._response_key, mac_loggable(self._address), target
+        )
         await async_write_field(
             self.coordinator,
             self._bluetti_device,
@@ -196,7 +188,7 @@ class BluettiSelect(CoordinatorEntity, SelectEntity):
             self._use_encryption,
             self._lock,
             self._field,
-            state,
-            self._field.e[state],
+            target,
+            target,
             self._logger,
         )

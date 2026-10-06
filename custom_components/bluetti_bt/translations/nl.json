@@ -369,7 +369,21 @@
         "name": "Spanning cel {cell_num}"
       }
     },
+    "number": {
+      "soc_range_start": {
+        "name": "SOC laag"
+      },
+      "soc_range_end": {
+        "name": "SOC hoog"
+      }
+    },
     "switch": {
+      "ctrl_grid_charge": {
+        "name": "Laden van het net"
+      },
+      "ctrl_time_control": {
+        "name": "Tijdsturing"
+      },
       "ctrl_ac": {
         "name": "AC-uitgang"
       },
@@ -419,6 +433,12 @@
       }
     },
     "binary_sensor": {
+      "ctrl_grid_charge": {
+        "name": "Laden van het net"
+      },
+      "ctrl_time_control": {
+        "name": "Tijdsturing"
+      },
       "eco_ac_on": {
         "name": "AC-ECO"
       },

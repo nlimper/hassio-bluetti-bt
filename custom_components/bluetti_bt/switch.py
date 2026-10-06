@@ -3,9 +3,6 @@
 from __future__ import annotations
 import asyncio
 import logging
-import async_timeout
-from bleak import BleakScanner
-from bleak_retry_connector import BleakClientWithServiceCache, establish_connection
 from homeassistant.components.switch import SwitchEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
@@ -19,8 +16,6 @@ from homeassistant.helpers.update_coordinator import (
 from bluetti_bt_lib import (
     build_device,
     BluettiDevice,
-    DeviceWriter,
-    DeviceWriterConfig,
     DeviceField,
     FieldName,
 )
@@ -30,6 +25,7 @@ from . import device_info as dev_info, get_unique_id
 from .const import DATA_COORDINATOR, DATA_LOCK, DOMAIN
 from .coordinator import PollingCoordinator
 from .utils import mac_loggable, unique_id_logable
+from .write import async_write_field
 
 
 async def async_setup_entry(
@@ -195,43 +191,15 @@ class BluettiSwitch(CoordinatorEntity, SwitchEntity):
         await self.write_to_device(False)
 
     async def write_to_device(self, state: bool):
-        """Write to device."""
-
-        try:
-            # The unit takes one client, so a held read connection blocks this.
-            await self.coordinator.reader.release()
-
-            device = await BleakScanner.find_device_by_address(self._address, timeout=5)
-
-            if device is None:
-                return
-
-            client = await establish_connection(
-                BleakClientWithServiceCache,
-                device,
-                device.name or "Unknown Device",
-                max_attempts=10,
-            )
-
-            if not client.is_connected:
-                return
-
-            writer = DeviceWriter(
-                client,
-                self._bluetti_device,
-                DeviceWriterConfig(use_encryption=self._use_encryption),
-                lock=self._lock,
-            )
-
-            async with async_timeout.timeout(15):
-                # Send command
-                await writer.write(self._field.name, state)
-
-                # Wait until device has changed value, otherwise reading register might reset it
-                await asyncio.sleep(5)
-
-        except TimeoutError:
-            self._logger.error("Timed out for device %s", mac_loggable(self._address))
-            return None
-
-        await self.coordinator.async_request_refresh()
+        """Write to device and confirm by reading it back."""
+        await async_write_field(
+            self.coordinator,
+            self._bluetti_device,
+            self._address,
+            self._use_encryption,
+            self._lock,
+            self._field,
+            state,
+            state,
+            self._logger,
+        )

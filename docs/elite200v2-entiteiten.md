@@ -6,6 +6,25 @@ Alleen registers die op dit model een echte waarde geven (geen `404`, geen Modbu
 
 Status: ✓ = waarde klopt met HA/app/meting, ? = waarde gelezen maar schaal of betekenis nog verifiëren.
 
+## Stand van de implementatie
+
+| Wat | Status |
+|---|---|
+| Sensoren, energietellers, uitgangen/AC-ECO als binaire sensor | in de integratie, getest op HA |
+| Tijdvakken 1–6 (sensor: modus, attributen start/eind) | in de integratie, nog niet getest op HA |
+| Werkmodus (2005), laadmodus (2020), schermtijd (2067), DC-ECO-tijd (2015): keuzelijst | gebouwd, nog niet getest |
+| Laden van het net (2008), DC-ECO (2014), power lifting (2021), tijdsturing (2029): schakelaar | gebouwd, nog niet getest |
+| SOC laag/hoog (2022/2023): getal 5–100, laag < hoog | gebouwd, nog niet getest |
+| Max netlaadstroom (2214) | open: bereik komt in de app uit een modelconfiguratie; hoort bij laadmodus "aangepast" |
+| DC-ECO-minimumvermogen (2016), op afstand opstarten (2073/2074), 2226 | open: bereik of betekenis nog niet bekend |
+| Tijdvakken schrijven | later |
+
+Werkmodus op dit model (zoals de officiële integratie): 1 = Customized UPS, 2 = PV Priority UPS,
+4 = Standard UPS, 5 = Time Control UPS.
+
+Elke schrijfactie wordt teruggelezen en maximaal 3 keer herhaald (`write.py`); lukt het niet,
+dan geeft HA een foutmelding.
+
 ## Sensoren (alleen lezen)
 
 AC- en DC-uitgang (2011/2012) en AC-ECO (2017–2019) alleen als sensor, nooit als schakelaar of instelling.

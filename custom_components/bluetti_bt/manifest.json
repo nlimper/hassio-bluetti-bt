@@ -35,7 +35,7 @@
     "iot_class": "local_polling",
     "issue_tracker": "https://github.com/Patrick762/hassio-bluetti-bt/issues",
     "requirements": [
-        "bluetti-bt-lib @ git+https://github.com/nlimper/bluetti-bt-lib.git@ea4cf31d303af730d744da9fd609f12470f57784"
+        "bluetti-bt-lib @ git+https://github.com/nlimper/bluetti-bt-lib.git@10e3237c33d37ad73da82ce0620a778a5868f606"
     ],
     "version": "0.2.13"
 }

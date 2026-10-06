@@ -369,7 +369,21 @@
         "name": "Spannung Zelle {cell_num}"
       }
     },
+    "number": {
+      "soc_range_start": {
+        "name": "SOC niedrig"
+      },
+      "soc_range_end": {
+        "name": "SOC hoch"
+      }
+    },
     "switch": {
+      "ctrl_grid_charge": {
+        "name": "Netzladen"
+      },
+      "ctrl_time_control": {
+        "name": "Zeitsteuerung"
+      },
       "ctrl_ac": {
         "name": "AC Ausgang"
       },
@@ -419,6 +433,12 @@
       }
     },
     "binary_sensor": {
+      "ctrl_grid_charge": {
+        "name": "Netzladen"
+      },
+      "ctrl_time_control": {
+        "name": "Zeitsteuerung"
+      },
       "eco_ac_on": {
         "name": "AC ECO"
       },

@@ -114,7 +114,13 @@
       "sm_p3_power": { "name": "Potência do medidor inteligente Fase 3" },
       "sm_p3_voltage": { "name": "Tensão do medidor inteligente Fase 3" }
     },
+    "number": {
+      "soc_range_start": { "name": "SOC mínimo" },
+      "soc_range_end": { "name": "SOC máximo" }
+    },
     "switch": {
+      "ctrl_grid_charge": { "name": "Carregar da rede" },
+      "ctrl_time_control": { "name": "Controle de horário" },
       "ctrl_ac": { "name": "Saída CA" },
       "ctrl_charging_mode": { "name": "Modo de carregamento" },
       "ctrl_dc": { "name": "Saída CC" },
