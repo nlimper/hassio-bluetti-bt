@@ -11,10 +11,10 @@ Status: ✓ = waarde klopt met HA/app/meting, ? = waarde gelezen maar schaal of 
 | Wat | Status |
 |---|---|
 | Sensoren, energietellers, uitgangen/AC-ECO als binaire sensor | in de integratie, getest op HA |
-| Tijdvakken 1–6 (sensor: modus, attributen start/eind) | in de integratie, nog niet getest op HA |
-| Werkmodus (2005), laadmodus (2020), schermtijd (2067), DC-ECO-tijd (2015): keuzelijst | gebouwd, nog niet getest |
-| Laden van het net (2008), DC-ECO (2014), power lifting (2021), tijdsturing (2029): schakelaar | gebouwd, nog niet getest |
-| SOC laag/hoog (2022/2023): getal 5–100, laag < hoog | gebouwd, nog niet getest |
+| Tijdvakken 1–6 (sensor: modus, attributen start/eind) | getest op HA |
+| Werkmodus (2005), laadmodus (2020), schermtijd (2067), DC-ECO-tijd (2015): keuzelijst | lezen getest; schrijven getest op schermtijd |
+| Laden van het net (2008), DC-ECO (2014), power lifting (2021), tijdsturing (2029): schakelaar | lezen getest; schrijven nog niet |
+| SOC laag/hoog (2022/2023): getal 5–100, laag < hoog | lezen getest; schrijven getest op SOC hoog |
 | Max netlaadstroom (2214) | open: bereik komt in de app uit een modelconfiguratie; hoort bij laadmodus "aangepast" |
 | DC-ECO-minimumvermogen (2016), op afstand opstarten (2073/2074), 2226 | open: bereik of betekenis nog niet bekend |
 | Tijdvakken schrijven | later |
@@ -24,6 +24,9 @@ Werkmodus op dit model (zoals de officiële integratie): 1 = Customized UPS, 2 =
 
 Elke schrijfactie wordt teruggelezen en maximaal 3 keer herhaald (`write.py`); lukt het niet,
 dan geeft HA een foutmelding.
+
+Schrijftest via HA (6 okt 2026): schermtijd NEVER → MIN5 → NEVER en SOC hoog 100 → 99 → 100,
+alle vier in één poging bevestigd (9–22 s per schrijfactie).
 
 ## Sensoren (alleen lezen)
 

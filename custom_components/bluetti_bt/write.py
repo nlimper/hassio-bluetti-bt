@@ -76,6 +76,10 @@ async def async_write_field(
             actual = None if data is None else data.get(field.name)
             if actual == expected:
                 logger.info("Wrote %s = %s (attempt %d)", field.name, expected, attempt)
+                # Show the confirmed value now instead of after the next full poll
+                if isinstance(coordinator.data, dict):
+                    coordinator.data[field.name] = actual
+                    coordinator.async_update_listeners()
                 await coordinator.async_request_refresh()
                 return
 
