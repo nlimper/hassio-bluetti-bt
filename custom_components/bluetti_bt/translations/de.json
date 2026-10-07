@@ -38,6 +38,14 @@
       "battery_soh": {
         "name": "Batteriezustand"
       },
+      "battery_charging_status": {
+        "name": "Batteriestatus",
+        "state": {
+          "none": "Ruhe",
+          "charge": "Laden",
+          "discharge": "Entladen"
+        }
+      },
       "battery_current": {
         "name": "Batteriestrom"
       },

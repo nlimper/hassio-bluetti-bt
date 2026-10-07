@@ -36,6 +36,14 @@
       "battery_soh": {
         "name": "Saúde da bateria"
       },
+      "battery_charging_status": {
+        "name": "Estado da bateria",
+        "state": {
+          "none": "Em repouso",
+          "charge": "Carregando",
+          "discharge": "Descarregando"
+        }
+      },
       "battery_current": {
         "name": "Corrente da bateria"
       },

@@ -38,7 +38,8 @@ AC- en DC-uitgang (2011/2012) en AC-ECO (2017–2019) alleen als sensor, nooit a
 | 6006 (lo) | Accu SOH (gezondheid) | % | 99 | ✓ |
 | 6007 | Accutemperatuur | °C, waarde − 40 | 36 °C | ? |
 | 6003 | Accuspanning | V, ÷100 (app zegt ÷10) | 39,86 V | ? |
-| 6004 | Accustroom | A, ÷10, met teken | 0 | ? |
+| 6004 | Accustroom | A, ÷10, zonder teken (ook positief bij laden) | 26,4 bij laden, 2,5 bij ontladen | ✓ |
+| 103 | Laadstatus | 0 geen, 1 laden, 2 ontladen (richting van de accustroom) | | ✓ |
 | 6010 | Max laadspanning accu | V, ÷10 | 42,6 V | ? |
 | 103 | Laadstatus | enum | 0 | ? |
 | 104 / 105 | Tijd tot vol / tot leeg | min; 5994 = n.v.t. | 5994 | ? |

@@ -86,3 +86,13 @@ Op register 2067 (schermtijd), het enige register dat het testscript mocht schri
 Schrijven via de library (`DeviceWriter`, eigen verbinding per schrijfactie) loopt af en toe
 tegen een time-out aan bij het opnieuw verbinden direct na een leesactie. Een schrijfactie moet dus
 altijd worden teruggelezen en zo nodig herhaald.
+
+## Laden en ontladen (7 okt 2026)
+
+- Ontlaad-vak 06:30-09:45: de Bluetti voedde de werkkamer uit de accu (~100 VA verbruik, accu ~95 W),
+  SOC 56 -> 37 %, om 09:45 terug naar pass-through. De ingangs-Shelly (met teken) mat de hele sessie
+  -27 tot -45 W: in een ontlaad-vak levert de omvormer terug aan het net.
+- Laadvenster 12:30-14:30: ~1390 W op de ingangs-Shelly (~1450 VA volgens de Bluetti), SOC 38 -> 70 %
+  in 40 min = 0,8 %/min = 12 %/kwartier.
+- Accustroom (6004) heeft geen teken: +26,4 A bij laden, +2,5 A bij ontladen. De richting staat in
+  register 103 (laadstatus: 0 geen, 1 laden, 2 ontladen; `BMSChargingStatus` in de app).

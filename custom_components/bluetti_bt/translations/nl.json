@@ -38,6 +38,14 @@
       "battery_soh": {
         "name": "Accugezondheid"
       },
+      "battery_charging_status": {
+        "name": "Accustatus",
+        "state": {
+          "none": "Rust",
+          "charge": "Laden",
+          "discharge": "Ontladen"
+        }
+      },
       "battery_current": {
         "name": "Accustroom"
       },

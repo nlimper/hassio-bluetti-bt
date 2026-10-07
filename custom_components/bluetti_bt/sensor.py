@@ -5,7 +5,7 @@ from enum import Enum
 import logging
 from decimal import Decimal
 from typing import List
-from homeassistant.components.sensor import SensorEntity
+from homeassistant.components.sensor import SensorDeviceClass, SensorEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import EntityCategory
@@ -13,6 +13,11 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from bluetti_bt_lib import build_device, FieldName, get_unit
+from bluetti_bt_lib.fields import EnumField
+
+# Enum sensors shown as translated states (lowercase option keys). Other enum
+# sensors keep their uppercase names so existing automations keep working.
+TRANSLATED_ENUM_SENSORS = [FieldName.BATTERY_CHARGING_STATUS]
 
 from . import device_info as dev_info, get_unique_id, FullDeviceConfig
 from .const import DATA_COORDINATOR, DOMAIN, MANUFACTURER
@@ -57,6 +62,20 @@ async def async_setup_entry(
         device_class = get_device_class(field_name)
         state_class = get_state_class(field_name)
         category = None if config.use_encryption else get_category(field_name)
+
+        if field_name in TRANSLATED_ENUM_SENSORS and isinstance(field, EnumField):
+            sensors_to_add.append(
+                BluettiSensor(
+                    coordinator,
+                    device_info,
+                    field.address,
+                    field.name,
+                    device_class=SensorDeviceClass.ENUM,
+                    options=[e.name.lower() for e in field.e],
+                    logger=logger,
+                )
+            )
+            continue
 
         if unit is not None:
             sensors_to_add.append(
@@ -208,6 +227,8 @@ class BluettiSensor(CoordinatorEntity, SensorEntity):
         self._attr_state_class = state_class
         self._attr_entity_category = category
         self._options = options
+        if options is not None:
+            self._attr_options = options
 
     @property
     def available(self) -> bool:
@@ -291,8 +312,10 @@ class BluettiSensor(CoordinatorEntity, SensorEntity):
 
         # Different for enum and numeric
         if isinstance(response_data, Enum):
-            # Enum
-            self._attr_native_value = response_data.name
+            # Enum; translated enum sensors use lowercase option keys
+            self._attr_native_value = (
+                response_data.name.lower() if self._options else response_data.name
+            )
         elif isinstance(response_data, List):
             self._attr_native_value = response_data[self._cell_num - 1]
         else:
