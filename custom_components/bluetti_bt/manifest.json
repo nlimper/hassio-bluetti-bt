@@ -37,5 +37,5 @@
     "requirements": [
         "bluetti-bt-lib @ git+https://github.com/nlimper/bluetti-bt-lib.git@096a8e659f766f1aca497df16d00daf877e47814"
     ],
-    "version": "0.3.3"
+    "version": "0.3.4"
 }

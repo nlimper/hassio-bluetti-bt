@@ -95,7 +95,8 @@ class BluettiBinarySensor(CoordinatorEntity, BinarySensorEntity):
         self._attr_available = True
         self._unavailable_counter = 0
         self._attr_extra_state_attributes = {}
-        self.async_write_ha_state()
+        # No state write here: the update handler writes once, after setting the new value and
+        # attributes (writing here too gave an extra state without attributes on every update).
 
     def _set_unavailable(self, cause: str = "Unknown"):
         """Set sensor as unavailable."""
