@@ -146,7 +146,7 @@ _bron: `ProtocolParserV2.parseHomeData`_
 | 162 | PvToAcEnergy | 2 reg | /10 u32 |  |
 | 164 | SelfSufficiencyRate | lo-byte |  |  |
 | 165 | PvToAcPower | 2 reg | u32 |  |
-| 167 | PackDsgEnergyTotal | 2 reg | /10 u32 |  |
+| 167 | PackDsgEnergyTotal | 2 reg | /10 u32 | Elite 200 V2: gemeten /100 |
 | 169 | RateVoltage | u16 |  |  |
 | 170 | RateFrequency | u16 |  |  |
 | 175 | SceneFlag | lo-byte |  |  |

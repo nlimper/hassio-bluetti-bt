@@ -66,10 +66,14 @@ Waarschijnlijk 32-bits met het lage woord eerst (het tweede register is nu 0). E
 | 152 (= 1422) | Totaal AC-uit | 809,5 kWh | ? |
 | 156 (= 1303) | Totaal geladen van het net | 815,9 kWh | ? |
 | 154 (= 1202) | Totaal PV | 57,7 kWh | ? |
-| 167 (= 6021) | Totaal ontladen uit de accu | 902,0 kWh | ? |
+| 167 (= 6021) | Totaal ontladen uit de accu (÷100, niet ÷10) | 90,20 kWh | ✓ |
 | 1501 | Totaal omvormer | 284,3 kWh | ? |
 
 Dezelfde waarde staat in twee blokken; dat bevestigt de betekenis.
+
+167 is in 0,01 kWh, niet ÷10 zoals de app opgeeft (vastgesteld 17 okt 2026): met ÷10 liep hij tijdens
+ontladen 10x zo hard op als de SOC-daling en de geleverde energie aan de AC-kant (16 okt: +13,0 tegen
+1,19 kWh geleverd en ~1,45 kWh volgens de SOC-daling). Hij loopt alleen op tijdens ontladen.
 
 ## Bediening (lezen en schrijven)
 
